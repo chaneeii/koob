@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-md-6 offset-md-3 text-center">
 
+
+
     <h2>Sign up</h2>
     <br/>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -11,7 +13,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.email_field :email, autocomplete: "email",  class: "form-control", class: "form-control", placeholder: "Email" %>
+        <%= f.email_field :email, autocomplete: "email",  class: "form-control", placeholder: "Email" %>
       </div>
 
       <div class="form-group">
@@ -28,6 +30,14 @@
 
       <div class="actions">
         <%= f.submit "Sign up", class: "btn btn-primary" %>
+        <br/>
+        <br/>
+        <hr>
+
+        <%= link_to user_facebook_omniauth_authorize_path do %>
+          <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+        <% end %>
+
       </div>
     <% end %>
 

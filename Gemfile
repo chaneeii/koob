@@ -29,7 +29,12 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'toastr-rails', '~> 1.0'
 
+## 로그인 API 때 쓰일 Gem
+gem 'omniauth-oauth2'
+gem 'omniauth-facebook'
 
+## API 키를 숨기기 위한 Gem
+gem 'figaro'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

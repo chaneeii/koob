@@ -2,7 +2,10 @@
  *= require bootstrap
  *= require_tree .
  *= require_self
+ *= require toastr
  */
+
+@import 'toastr';
 
 .avatar-small {
   width: 28px;

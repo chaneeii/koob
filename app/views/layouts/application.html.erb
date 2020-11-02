@@ -12,8 +12,13 @@
   <body>
 
     <%= render 'shared/navbar' %>
-    <%= render 'shared/message' %>
+<!--    <p class="notice"><%#= notice %></p>-->
+<!--    <p class="alert"><%#= alert %></p>-->
 
+    <% if notice %>
+      <%= render 'layouts/alerts' %>
+    <% end %>
+    <br/>
 
     <div class="container">
 

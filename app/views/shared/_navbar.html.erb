@@ -20,10 +20,10 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag avatar_url(current_user), class: "rounded-circle avatar-small" %>&nbsp
             <%= current_user.fullname %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
             <a class="dropdown-item" href="#">Your Request</a>
             <a class="dropdown-item" href="#">Wish List</a>
             <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>

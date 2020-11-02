@@ -1,54 +1,75 @@
 <div class="row">
-  <div class="col-md-6 offset-md-3 text-center">
-
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-
-      <div class="form-group">
-        <%= f.text_field :fullname, autofocus: true, autocomplete: "off",  class: "form-control", placeholder: "Full Name" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-      </div>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <div class="form-group">
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "New Password (leave blank if you don't want to change it)" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
-      </div>
-
-      <div class="form-group">
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "Type current password to confirm your change" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Update", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-
-
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item">
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active"%>
+      </li>
+    </ul>
     <br>
-    <br>
-    <br>
-    <h3>Cancel my account</h3>
+    <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-primary" %>
 
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %></p>
+  </div>
+  <div class="col-md-9 text-center">
+    <div class="card">
+      <div class="card-header">
+        Your Profile
+      </div>
+      <div class="card-body">
+        <div class="container">
+          <div class=" col-md-9 offset-md-3  edit-prof-container text-center">
 
-    <%= link_to "Back", :back %>
+            <h4>Edit <%= resource_name.to_s.humanize %></h4>
+            <br>
 
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+
+              <div class="form-group">
+                <%= f.text_field :fullname, autofocus: true, autocomplete: "off",  class: "form-control", placeholder: "Full Name" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.text_field :kakao, autofocus: true, placeholder: "카카오톡 오픈채팅", class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.text_area :s_description, autofocus: true, rows: 5, cols: 25,  autocomplete: "s_description", placeholder: "책장 소개", class: "form-control" %>
+              </div>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+              <div class="form-group">
+                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "New Password (leave blank if you don't want to change it)" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
+              </div>
+
+
+              <div class="actions">
+                <%= f.submit "수정하기", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+
+            <br>
+            <hr>
+            <br>
+            <h4>Cancel my account</h4>
+            <p>계정을 삭제하시겠습니까?</p>
+            <%= button_to "계정을 삭제하겠습니다.", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-secondary" %>
+            <%= link_to "아니요. 뒤로돌아가기", :back, class: "btn btn-primary" %>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

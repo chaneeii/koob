@@ -7,6 +7,88 @@
 
 @import 'toastr';
 
+body{
+  color: #565a5c;
+  background-color: #fff;
+}
+
+a {
+  color: #565a5c;
+}
+
+.container{
+  width: 80%;
+}
+
+.navbar-custom {
+  background-color: #02CCC0;
+  color: #ffffff;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: #ffffff;
+  font-weight: bold;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link  {
+  color: #ffffff;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ffffff;
+}
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+.btn-primary{
+  border: 1px solid #FF8181;
+  background-color: #FF8181;
+  color: #ffffff;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+.btn-primary:hover, .btn-primary:focus{
+  border: 1px solid #D85252;
+  background-color: #D85252;
+}
+
+.card-body .card-title {
+  color : #565a5c;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+
+
+.row-space-1 {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.row-space-2 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.row-space-3 {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.description {
+  color: #575757;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+
 .avatar-small {
   width: 28px;
 }

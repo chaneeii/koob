@@ -1,0 +1,24 @@
+
+<div class="row row-cols-1">
+  <div class="l-card col-md-4 col-sm-12">
+    <div class="card" style="width: 16rem;">
+      <%= image_tag avatar_url(@user), class: "avatar-full card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @user.fullname %></h5>
+        <p class="card-text">
+          Email Address<br>
+          Kakao
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-8 col-sm-12 row-space-1">
+    <h2><%= @user.fullname %></h2>
+    <div class="description">
+      <%= @user.s_description %>
+    </div>
+
+  </div>
+</div>

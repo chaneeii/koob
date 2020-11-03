@@ -16,6 +16,15 @@ a {
   color: #565a5c;
 }
 
+label {
+  color: #565a5c;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+
 .container{
   width: 100%;
 }
@@ -79,9 +88,14 @@ a {
   font-weight: bold;
 }
 
+.card-body{
+  padding: 5%;
+}
+
 .card-header {
   font-size: 1.5rem;
   font-weight: bold;
+  text-align: center;
 }
 
 

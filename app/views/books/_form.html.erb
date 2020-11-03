@@ -1,19 +1,57 @@
 <div class="card">
   <div class="card-header">
-    집에서 쉬고 있는 책을 등록해보세요
+    집에서 쉬고 있는 책을 공유해보세요
   </div>
   <div class="card-body">
     <div class="container">
 
       <%= form_for @book do |f| %>
-        <div class="col-md-4  ">
-          <label for="book_type">분야</label>
-          <div class="form-group">
-            <%= f.select(:book_type, options_for_select( [["Novel","소설/시"], ["History","인문/역사"], ["Science","과학/기술"], ["ChildTeen","어린이/청소년"], ["Abroad","외국도서"]]),
-                {prompt: "장르선택"}, {id: "book_type", class: "form-control"}) %>
-
+        <div class="form-row">
+          <div class="col-md-4 select">
+            <label for="book_type">분야</label>
+            <div class="form-group">
+              <%= f.select(:book_type, options_for_select( [["소설/시","소설/시"], ["인문/역사","인문/역사"], ["과학/기술","과학/기술"], ["어린이/청소년","어린이/청소년"], ["외국도서","외국도서"]]),
+                           {prompt:"장르선택"}, {id: "book_type", class: "form-control"}) %>
+            </div>
+          </div>
+          <div class="form-group col-md-8 ">
+            <label for="isbn">ISBN</label>
+            <%= f.text_field :isbn, placeholder: "ISBN", class: "form-control" %>
           </div>
         </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="book_name">책 이름</label>
+            <%= f.text_field :book_name, placeholder: "책 이름", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="summary">책 & 거래 설명</label>
+            <%= f.text_area :summary, rows: 6, placeholder: "책과 거래에 대한 내용을 작성해주세요!", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group  col-md-12">
+            <label for="address">책장 위치</label>
+            <%= f.text_field :address, placeholder: "책을 거래할 지역을 골라주세요", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+              <%= f.check_box :active %> 공유할래요?
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "등록하기", class: "btn btn-primary" %>
+        </div>
+
+
       <% end %>
 
     </div>

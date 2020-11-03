@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-header">
+    집에서 쉬고 있는 책을 등록해보세요
+  </div>
+  <div class="card-body">
+    <div class="container">
+
+      <%= form_for @book do |f| %>
+        <div class="col-md-4  ">
+          <label for="book_type">분야</label>
+          <div class="form-group">
+            <%= f.select(:book_type, options_for_select( [["Novel","소설/시"], ["History","인문/역사"], ["Science","과학/기술"], ["ChildTeen","어린이/청소년"], ["Abroad","외국도서"]]),
+                {prompt: "장르선택"}, {id: "book_type", class: "form-control"}) %>
+
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

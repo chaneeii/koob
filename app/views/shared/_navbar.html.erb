@@ -26,6 +26,12 @@
           </li>
         </ul>
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item mr-sm-2">
+              <a class="nav-link" href="#"><i class="far fa-envelope"></i> 메세지 보내기</a>
+            </li>
+            <li class="nav-item mr-sm-2">
+              <a class="nav-link" href="#"><i class="fas fa-book-open"></i> 책 등록하기</a>
+            </li>
             <li class="nav-item dropdown mr-sm-2">
               <a class="nav-link dropdown-toggle username_nav " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= image_tag avatar_url(current_user), class: "rounded-circle avatar-small" %>&nbsp
@@ -41,10 +47,12 @@
               </div>
             </li>
 
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-search btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-            </form>
+<!--            <form class="form-inline my-2 my-lg-0">-->
+<!--              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--              <button class="btn btn-search btn-outline-light my-2 my-sm-0" type="submit">Search</button>-->
+<!--            </form>-->
+
+
 
         </ul>
       <% end %>

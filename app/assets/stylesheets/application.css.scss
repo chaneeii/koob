@@ -23,6 +23,30 @@ label {
   margin-bottom: 10px;
 }
 
+input[type="checkbox"] {
+  height: 1.25rem;
+  width: 1.25rem;
+  margin-bottom: -0.25;
+  margin-right: 5px;
+  vertical-align: top;
+  border: 1px solid #c4c4c4;
+  border-radius: 2px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"]:checked:before{
+  content: "\2713";
+  position: absolute;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  width: 1.25em;
+  color: #FF8181;
+}
+
+
 
 
 .container{

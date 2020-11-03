@@ -46,7 +46,9 @@ input[type="checkbox"]:checked:before{
   color: #FF8181;
 }
 
-
+.heading{
+  margin-bottom: 10%;
+}
 
 
 .container{
@@ -103,7 +105,16 @@ input[type="checkbox"]:checked:before{
   border-radius: 10px;
   padding: 10px 0;
   margin-top: 10px;
+  border-radius: 10px;
 }
+
+.btn-facebook{
+  background-color: #4267B2;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+
 
   /* CARD VIEW */
 .card-body .card-title {

@@ -26,8 +26,8 @@
         <br/>
         <br/>
         <hr>
-        <%= link_to user_facebook_omniauth_authorize_path do %>
-          <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+        <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-facebook" do %>
+          <i class="fab fa-facebook"></i> 페이스북으로 로그인
         <% end %>
       </div>
     <% end %>

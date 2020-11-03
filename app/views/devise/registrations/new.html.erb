@@ -3,7 +3,7 @@
 
 
 
-    <h2>Sign up</h2>
+    <h2 class="heading">Sign up</h2>
     <br/>
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -17,14 +17,10 @@
       </div>
 
       <div class="form-group">
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"%>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password (min. 6 characters)"%>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Password Confirmation" %>
       </div>
 
@@ -34,11 +30,12 @@
         <br/>
         <hr>
 
-        <%= link_to user_facebook_omniauth_authorize_path do %>
-          <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+        <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-facebook" do %>
+          <i class="fab fa-facebook"></i> 페이스북으로 시작하기
         <% end %>
 
       </div>
+
     <% end %>
 
   </div>

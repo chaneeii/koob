@@ -2,7 +2,7 @@
   <div class="col-md-6 offset-md-3 text-center">
 
 
-    <h2>Log in</h2>
+    <h2 class="heading" >Log in</h2>
     <br/>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -21,13 +21,13 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "Log in", class: "btn btn-primary" %>
-        <%= link_to "Forgot Password", new_user_password_path, class: "btn btn-primary" %>
+        <%= f.submit "Log in", class: "btn btn-pink" %>
+        <%= link_to "Forgot Password", new_user_password_path, class: "btn btn-pink" %>
         <br/>
         <br/>
         <hr>
         <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-facebook" do %>
-          <i class="fab fa-facebook"></i> 페이스북으로 로그인
+          <i class="fab fa-facebook"></i>  페이스북으로 로그인
         <% end %>
       </div>
     <% end %>

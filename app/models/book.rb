@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   belongs_to :user
+  has_many :photos
 
   validates :book_type, presence: true
   validates :isbn, presence: true

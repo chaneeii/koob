@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_012738) do
+ActiveRecord::Schema.define(version: 2020_11_09_170335) do
 
   create_table "books", force: :cascade do |t|
     t.string "book_type"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 2020_11_03_012738) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["book_id"], name: "index_photos_on_book_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,4 +61,5 @@ ActiveRecord::Schema.define(version: 2020_11_03_012738) do
   end
 
   add_foreign_key "books", "users"
+  add_foreign_key "photos", "books"
 end

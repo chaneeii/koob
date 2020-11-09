@@ -11,6 +11,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @photos = @book.photos
   end
 
   def new
@@ -21,18 +22,36 @@ class BooksController < ApplicationController
     @book = current_user.books.build(book_params)
 
     if @book.save
-      redirect_to @book, notice: "Saved..."
+      if params[:images]
+        params[:images].each do |image|
+          @book.photos.create(image: image)
+        end
+      end
+      @photos = @book.photos
+      redirect_to edit_book_path(@book), notice: "도서를 등록합니다 :) "
     else
       render :new
     end
   end
 
   def edit
+    if current_user.id == @book.user.id
+      @photos = @book.photos
+    else
+      redirect_to root_path, notice: "접근 권한이 없습니다."
+    end
   end
 
   def update
     if @book.update(book_params)
-      redirect_to @book, notice: "Updated.."
+
+      if params[:images]
+        params[:images].each do |image|
+          @book.photos.create(image: image)
+        end
+      end
+
+      redirect_to edit_book_path(@book), notice: "업데이트합니다 :) "
     else
       render :edit
     end

@@ -7,6 +7,7 @@
 
 @import 'toastr';
 
+
 body{
   color: #565a5c;
   background-color: #fff;
@@ -46,6 +47,18 @@ input[type="checkbox"]:checked:before{
   color: #FF8181;
 }
 
+.vertical-center{
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.hor-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .heading{
   margin-top: 10%;
   margin-bottom: 10%;
@@ -60,6 +73,22 @@ input[type="checkbox"]:checked:before{
 .edit-prof-container {
   margin : 0 auto;
 }
+
+/* LIST */
+.list-item-custom{
+  margin-bottom: 1.5%;
+}
+
+.img-thumbnail {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  width: 200px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+
 
 /* NAVIGATION BAR */
 .navbar-custom {
@@ -320,9 +349,10 @@ input[type="checkbox"]:checked:before{
 
 .sidebar-item {
   padding-left: 10px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #82888a;
   border-bottom: 1px solid #CCCCCC;
+  margin-bottom: 10px;
 }
 
 .sidebar-link {

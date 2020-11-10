@@ -43,11 +43,13 @@
 
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="address">책장 위치</label>
+            <label for="address">사진 업로드</label>
+            <br>
             <span class="btn btn-outline-secondary btn-file">
               <i class="fas fa-cloud-upload-alt fa-lg"></i> 사진 업로드하기
-              <%= file_field_tag 'images[]' , type: :file, multiple: true %>
+              <%= file_field_tag 'images[]', type: :file, multiple: true %>
             </span>
+
           </div>
         </div>
 

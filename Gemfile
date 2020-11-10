@@ -39,6 +39,10 @@ gem 'figaro'
 ## image
 gem "paperclip", "~> 6.0.0"
 
+## geocoder
+gem 'geocoder', '~> 1.6', '>= 1.6.4'
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

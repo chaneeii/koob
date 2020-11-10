@@ -4,11 +4,12 @@
     <!--image-->
     <div class="row">
       <div class="col-md-12">
-        <%= image_tag @photos[0].image.url, class: "img-fluid hor-center" if @photos.length >0 %>
+        <%= image_tag @photos[0].image.url, class: "img-fluid hor-center title-img-detail" if @photos.length >0 %>
       </div>
     </div>
 
     <br>
+    <hr>
 
 
     <!-- Main Info -->
@@ -50,16 +51,15 @@
     </div>
 
     <br>
-    <br>
+    <hr>
 
     <!-- about -->
+    <label> 상세정보 </label>
     <div class="row">
       <div class="col-md-12">
-        <h4> 상세정보 </h4>
         <p><%= @book.summary %></p>
       </div>
     </div>
-
 
     <br>
     <br>
@@ -102,9 +102,70 @@
       </div>
     </div>
 
+    <br>
+    <hr>
+
+    <!--Google Map-->
+    <label> 책장 위치 </label>
+    <div class="row">
+      <div class="col-md-8 hor-center">
+
+        <div id="map"></div>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCSC3dBrgFUOnwHVkiR9MA5ZmwEIwIU9c&callback=initMap&libraries=places"></script>
+        <script>
+            // Initialize and add the map
+            function initMap() {
+                // The location of Uluru
+                const uluru = { lat: <%= @book.latitude %>, lng: <%= @book.longitude %> };
+                // The map, centered at Uluru
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 14,
+                    center: uluru,
+                });
+                // The marker, positioned at Uluru
+                const marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map,
+                    title: "koob"
+                });
+            }
+        </script>
+
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <hr>
+
+
+    <!--Close by Rooms-->
+    <label> 주위에 있는 책장 같이 탐색</label>
+    <div class="row">
+      <% for book in @book.nearbys(10) %>
+        <div class="col-md-4">
+          <div class="card" >
+            <div class="vertical-center img-fluid">
+              <%= image_tag(book.photos[0].image.url(),class: "card-img-top") if book.photos.length > 0 %>
+            </div>
+            <div class="card-body">
+              <span class="card-title">
+                <%= link_to book.book_name, book %>
+              </span> <br>
+              <div class="card-text">
+                ( <%=book.distance.round(2) %> miles away )
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
 
 
 
 
   </div>
 </div>
+
+<br>

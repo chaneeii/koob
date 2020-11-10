@@ -47,6 +47,14 @@ input[type="checkbox"]:checked:before{
   color: #FF8181;
 }
 
+
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
 .vertical-center{
   display: block;
   margin-top: auto;
@@ -89,6 +97,9 @@ input[type="checkbox"]:checked:before{
 }
 
 /*show book detail*/
+.title-img-detail{
+  height: 30rem;
+}
 
 .main-profile-row{
   margin-bottom: 0.25rem;
@@ -103,6 +114,9 @@ input[type="checkbox"]:checked:before{
   display: block;
   margin-bottom: 0;
 }
+
+
+
 
 /* NAVIGATION BAR */
 .navbar-custom {
@@ -186,6 +200,12 @@ input[type="checkbox"]:checked:before{
 
 .card-title.preview img{
   width: 100%;
+}
+.card-img-top {
+  width: 100%;
+  height: 230px;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
 }
 
 

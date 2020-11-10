@@ -2,6 +2,9 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :photos
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 
   validates :book_type, presence: true
   validates :isbn, presence: true

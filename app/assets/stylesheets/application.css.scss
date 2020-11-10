@@ -88,7 +88,21 @@ input[type="checkbox"]:checked:before{
   margin: 0 auto;
 }
 
+/*show book detail*/
 
+.main-profile-row{
+  margin-bottom: 0.25rem;
+  padding: 1% 0;
+  //background-color: #EAEAEA;
+}
+.type-view{
+  //background-color: #EAEAEA;
+  //border-radius: 0.25rem;
+}
+.type-view-p{
+  display: block;
+  margin-bottom: 0;
+}
 
 /* NAVIGATION BAR */
 .navbar-custom {

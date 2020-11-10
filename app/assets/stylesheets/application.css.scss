@@ -114,7 +114,33 @@ input[type="checkbox"]:checked:before{
 }
 
 .btn-file{
+  position: relative;
+  overflow: hidden;
+}
 
+.btn-file input[type=file]{
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 4rem;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: black;
+  cursor: inherit;
+  display: block;
+}
+
+/* Image Preview */
+.card-title.preview{
+  padding: 0;
+}
+
+.card-title.preview img{
+  width: 100%;
 }
 
 

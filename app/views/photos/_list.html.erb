@@ -9,7 +9,10 @@
           </div>
           <div class="card-body">
             <span class="float-right">
-              <i class="fas fa-times fa-lg"></i>
+              <%= link_to photo, remote: true, method:  :delete, data: {confirm: "삭제할까요?"} do %>
+                <i class="fas fa-times fa-lg"></i>
+              <% end %>
+
             </span>
           </div>
         </div>

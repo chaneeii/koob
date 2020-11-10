@@ -45,13 +45,15 @@
           <div class="form-group col-md-4">
             <span class="btn btn-outline-secondary btn-file">
               <i class="fas fa-cloud-upload-alt fa-lg"></i> 사진 업로드하기
-              <%= file_field_tag 'images[]' , type: :file, multiple: true %>
+              <%= ffile_field_tag 'images[]' , type: :file, multiple: true %>
             </span>
           </div>
         </div>
 
 
-        <div id="photos"><%= render 'photos/list' %></div>
+        <div id="photos" class="form-row">
+          <%= render 'photos/list' %>
+        </div>
 
 
         <div class="form-row">

@@ -3,12 +3,17 @@ class BooksController < ApplicationController
   # only이후 메소드에서 뭘 하든 먼저 setbook메소드 호출
   before_action :set_book, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:show]
-
+  before_action :is_authorised, only: [:photo_upload]
 
   def index
     # 현재 유저의 책 전체 다 보여줌
     @books = current_user.books
   end
+
+  def photo_upload
+    @photos = @book.photos
+  end
+
 
   def show
     @photos = @book.photos
@@ -59,12 +64,12 @@ class BooksController < ApplicationController
 
   # 아이디 알아야함
   private
-    def set_book
-      @book = Book.find(params[:id])
-    end
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
-    def book_params
-      params.require(:book).permit(:book_type, :isbn, :book_name, :summary, :address, :active)
-    end
+  def book_params
+    params.require(:book).permit(:book_type, :isbn, :book_name, :summary, :address, :active, :images)
+  end
 
 end

@@ -109,30 +109,32 @@ input[type="checkbox"]:checked:before{
   border-radius: 10px;
 }
 
-.btn-default{
+  .btn-default{
 
-}
+  }
 
-.btn-file{
-  position: relative;
-  overflow: hidden;
-}
+  .btn-file{
+    position: relative;
+    overflow: hidden;
+  }
 
-.btn-file input[type=file]{
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  font-size: 4rem;
-  text-align: right;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  outline: none;
-  background: black;
-  cursor: inherit;
-  display: block;
-}
+
+  .btn-file input[type=file]{
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 4rem;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: black;
+    cursor: inherit;
+    display: block;
+  }
+
 
 /* Image Preview */
 .card-title.preview{

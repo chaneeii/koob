@@ -45,6 +45,8 @@ gem 'geocoder', '~> 1.6', '>= 1.6.4'
 ## date picker
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
+#search
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

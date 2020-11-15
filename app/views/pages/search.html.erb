@@ -5,20 +5,19 @@
   </div>
 
   <div id="article">
-
-    <div class="row">
-      <%= search_form @search, url: search_path do |f| %>
-
+    <div class="row col-md-2">
+    </div>
+    <div class="row col-md-8 hor-center">
+      <%= search_form_for @search, url: search_path do |f|%>
         <div class="row">
           <div class="col-md-4">
+            <label>대여시작날짜</label>
             <%= text_field_tag :start_date, params[:start_date], placeholder: "대여시작날짜", class:"form-control" %>
           </div>
           <div class="col-md-4">
+            <label>대여종료날짜</label>
             <%= text_field_tag :end_date, params[:end_date], placeholder: "대여종료날짜", class:"form-control" %>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>책 종류</label>
@@ -30,11 +29,31 @@
           </div>
         </div>
 
-
         <div class="row">
-          <%= f.submit "검색", class:"btn btn-primary" %>
+          <%= f.submit "필터검색", class:"btn btn-primary" %>
         </div>
 
+      <% end %>
+
+    </div>
+    <div class="row col-md-2">
+    </div>
+    <hr>
+    <div class="row">
+      <% @arrBooks.each do |book| %>
+        <div class="col-md-4">
+          <div class="card card-book-list" >
+            <div class="vertical-center img-fluid">
+              <%= image_tag(book.photos[0].image.url(),class: "card-img-top") if book.photos.length > 0 %>
+            </div>
+            <div class="card-body">
+              <%= link_to user_path(book.user) do %>
+                <%= image_tag avatar_url(book.user), class: "rounded-circle avatar-medium" %>
+              <% end %>
+              <%= link_to book.book_name, book %>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
 

@@ -18,8 +18,11 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-3 text-center">
-            <%= image_tag avatar_url(@book.user), class: "rounded-circle avatar-large" %><br>
-            <%= @book.user.fullname %>
+            <%= link_to user_path(@book.user) do %>
+              <%= image_tag avatar_url(@book.user), class: "rounded-circle avatar-large" %><br>
+              <%= @book.user.fullname %>
+            <% end %>
+
             <br>
           </div>
 

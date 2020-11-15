@@ -6,3 +6,16 @@
   <br>
   <%= f.submit "Send Request", class: "btn btn-primary" %>
 <% end %>
+
+
+<script>
+  $(function () {
+     $('#request_start_date').datepicker({
+       dateFormat: 'yy-mm-dd'
+     });
+      $('#request_end_date').datepicker({
+          dateFormat: 'yy-mm-dd'
+      });
+
+  });
+</script>

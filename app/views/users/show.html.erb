@@ -19,6 +19,25 @@
     <div class="description">
       <%= @user.s_description %>
     </div>
+    <br>
+
+    <h5> 총 (<%= @books.length %>)권</h5><br>
+    <div class="row">
+      <% @books.each do|book| %>
+        <div class="col-md-4">
+          <div class="card card-book-list" >
+            <div class="vertical-center img-fluid preview">
+              <%= image_tag(book.photos[0].image.url(),class: "card-img-top") if book.photos.length > 0 %>
+            </div>
+            <div class="card-body">
+                <%= link_to book.book_name, book %>
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
 
   </div>
 </div>

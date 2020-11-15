@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
   def create
     @request = current_user.requests.create(request_params)
 
-    redirect_to @request.book
+    redirect_to @request.book, notice: "대여 요청이 성공적으로 전송되었습니다."
   end
 
   private

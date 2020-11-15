@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :fullname, presence: true, length: {maximum: 50}
 
   has_many :books
+  has_many :requests
 
 
   def self.find_for_facebook_oauth(auth)

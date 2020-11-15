@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  book: one
+  start_date: 2020-11-15 16:08:15
+  end_date: 2020-11-15 16:08:15
+  status: 9.99
+  request_msg: MyText
+
+two:
+  user: two
+  book: two
+  start_date: 2020-11-15 16:08:15
+  end_date: 2020-11-15 16:08:15
+  status: 9.99
+  request_msg: MyText

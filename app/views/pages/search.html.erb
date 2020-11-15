@@ -1,0 +1,65 @@
+<div id="wrapper">
+
+  <div id="sidebar">
+    <div id="widget" class="sticky"></div>
+  </div>
+
+  <div id="article">
+
+    <div class="row">
+      <%= search_form @search, url: search_path do |f| %>
+
+        <div class="row">
+          <div class="col-md-4">
+            <%= text_field_tag :start_date, params[:start_date], placeholder: "대여시작날짜", class:"form-control" %>
+          </div>
+          <div class="col-md-4">
+            <%= text_field_tag :end_date, params[:end_date], placeholder: "대여종료날짜", class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>책 종류</label>
+              <div class="form-group">
+                <%= f.select(:book_type, options_for_select( [["소설/시","소설/시"], ["인문/역사","인문/역사"], ["과학/기술","과학/기술"], ["어린이/청소년","어린이/청소년"], ["외국도서","외국도서"]]),
+                             {prompt:"장르선택"}, {id: "book_type", class: "form-control"}) %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <%= f.submit "검색", class:"btn btn-primary" %>
+        </div>
+
+      <% end %>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+    $(function(){
+        $("#start_date").datepicker({
+            dateFormat: 'yy-mm-dd',
+            minDate: 0,
+            maxDate: '1m',
+            onSelect: function (selected){
+                $('#end_date').datepicker("option","minDate", selected);
+                $('#end_date').attr('disable',false);
+            }
+        });
+        $("#end_date").datepicker({
+            dateFormat: 'yy-mm-dd',
+            minDate: 0,
+            maxDate: '1m',
+            onSelect: function (selected){
+                $('#start_date').datepicker("option","maxDate", selected);
+            }
+        });
+    })
+</script>

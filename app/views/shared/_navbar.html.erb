@@ -14,21 +14,18 @@
       <% else %>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
+              <%= link_to "나의 책 리스트", books_path, class: "nav-link" %>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <%= link_to "받은 대여요청", rec_requests_path, class: "nav-link" %>
             </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">something</a>
+            <%= link_to "보낸 대여요청", my_requests_path, class: "nav-link" %>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item mr-sm-2">
-              <a class="nav-link" href="#"><i class="far fa-envelope"></i> 메세지 보내기</a>
-            </li>
             <li class="nav-item mr-sm-2">
               <a class="nav-link" href="/books/new"><i class="fas fa-book-open"></i> 책 등록하기</a>
             </li>
@@ -38,13 +35,7 @@
                 <%= current_user.fullname %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "나의 책 리스트", books_path, class: "dropdown-item" %>
-                <%= link_to "받은 대여요청", rec_requests_path, class: "dropdown-item" %>
-                <%= link_to "보낸 대여요청", my_requests_path, class: "dropdown-item" %>
-                <a class="dropdown-item" href="#">Wish List</a>
-                <div class="dropdown-divider"></div>
                 <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
-                <a class="dropdown-item" href="#">Account Setting</a>
                 <%= link_to "Log Out", destroy_user_session_path, method: :delete , class: "dropdown-item"%></a>
               </div>
             </li>

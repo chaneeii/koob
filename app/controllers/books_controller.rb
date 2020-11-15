@@ -41,7 +41,7 @@ class BooksController < ApplicationController
         end
       end
       @photos = @book.photos
-      redirect_to edit_book_path(@book), notice: "도서를 등록합니다 :) "
+      redirect_to @book, notice: "도서를 등록합니다 :) "
     else
       render :new
     end
@@ -64,7 +64,7 @@ class BooksController < ApplicationController
         end
       end
 
-      redirect_to edit_book_path(@book), notice: "업데이트합니다 :) "
+      redirect_to @book, notice: "업데이트합니다 :) "
     else
       render :edit
     end

@@ -16,13 +16,17 @@
         <% @books.each do |book| %>
           <div class="row list-item-custom ">
             <div class="col-md-2 vertical-center img-fluid">
-              <%= image_tag(book.photos[0].image.url(),class: "img-thumbnail") if book.photos.length > 0 %>
+              <%= link_to book_path(book) do %>
+                <%= image_tag(book.photos[0].image.url(),class: "img-thumbnail") if book.photos.length > 0 %>
+              <% end %>
             </div>
             <div class="col-md-7 vertical-center">
-              <h5><%= book.book_name %></h5>
+              <%= link_to book_path(book) do %>
+                <h5><%= book.book_name %></h5>
+              <% end %>
             </div>
             <div class="col-md-3 float-right vertical-center">
-              <%= link_to "Update", edit_book_path(book), class: "btn btn-primary" %>
+              <%= link_to "수정하기", edit_book_path(book), class: "btn btn-primary" %>
             </div>
           </div>
           <hr>

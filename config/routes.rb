@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     resources :requests, only: [:create]
   end
 
+  # url 입력할때, 이것은 requests controller의 preload를 실행할 것임.
+  get '/preload' => 'requests#preload'
+  get '/preview' => 'requests#preview'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

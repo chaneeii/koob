@@ -1,21 +1,142 @@
 <%= form_for([@book, @book.requests.new]) do |f| %>
-  <%= f.text_field :start_date%>
-  <%= f.text_field :end_date%>
+  <div class="row request-title">
+    <div class="col-md-12">
+        <h2> SEND REQUEST </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-mid-6">
+      <label>대여시작일</label>
+      <%= f.text_field :start_date, readonly: 'true', placeholder: '대여시작일', class: 'form-control' %>
+    </div>
+    <div class="col-mid-6">
+      <label>반납예정일</label>
+      <%= f.text_field :end_date, readonly: 'true', placeholder: '반납예정일', class: 'form-control', disabled: 'true' %>
+    </div>
+  </div>
+
   <%= f.hidden_field :book_id, value: @book.id %>
-  <!-- 가격 -->
+  <!-- 가격 - 나중에 넣으려면 -->
+  <h6><span id="message"></span></h6>
+
+  <div id="preview" style="display: none">
+      <table class="request-table">
+        <tbody>
+          <tr>
+            <td>대여기간 : </td>
+            <td> <span id = "request_days"></span> 일</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
   <br>
-  <%= f.submit "Send Request", class: "btn btn-primary" %>
+  <%= f.submit "Send Request", id: "btn_book", class: "btn btn-primary", disabled: 'true' %>
+
 <% end %>
 
 
 <script>
+
+  function unavailable(date){
+      ymd = date.getFullYear() + "-"+ (date.getMonth()+1)  +"-"+ date.getDate() ;
+      return [$.inArray(ymd, unavailableDates) == -1];
+  }
+
   $(function () {
-     $('#request_start_date').datepicker({
-       dateFormat: 'yy-mm-dd'
-     });
-      $('#request_end_date').datepicker({
-          dateFormat: 'yy-mm-dd'
+
+      unavailableDates = [];
+
+      $.ajax({
+          url: '/preload',
+          data: {'book_id': <%= @book.id %>},
+          dataType: 'json',
+          success: function (data){
+              $.each(data, function (arrID, arrValue){
+                  for(var d = new Date(arrValue.start_date); d <= new Date(arrValue.end_date); d.setDate(d.getDate()+1)){
+                      unavailableDates.push($.datepicker.formatDate('yy-m-d', d));
+                  }
+              });
+              $('#request_start_date').datepicker({
+                  dateFormat: 'yy-mm-dd',
+                  minDate: 0,
+                  maxDate: '1m',
+                  beforeShowDay: unavailable,
+                  onSelect: function(selected){
+                      $('#request_end_date').datepicker("option", "minDate", selected);
+                      $('#request_end_date').attr("disabled", false);
+
+                      var start_date = $(this).datepicker('getDate');
+                      var end_date = $('#request_end_date').datepicker('getDate');
+                      var days = (end_date - start_date)/1000/60/60/24 + 1;
+
+                      var input = {
+                          'start_date': start_date,
+                          'end_date': end_date,
+                          'book_id': <%= @book.id %>
+                      }
+                      $.ajax({
+                          url: "/preview",
+                          data: input,
+                          success: function (data){
+                              if(data.conflict){
+                                  $('#message').text("선택하신 날짜 범위는 이용 불가능합니다.");
+                                  $('#preview').hide();
+                                  $('#btn_book').attr('disabled',true);
+                              }else{
+                                  $('#message').text("선택하신 날짜 범위는 이용가능합니다.");
+                                  $('#preview').show();
+                                  $('#btn_book').attr('disabled',false);
+
+                                  $('#request_days').text(days);
+                              }
+                          }
+                      });
+                  }
+              });
+              $('#request_end_date').datepicker({
+                  dateFormat: 'yy-mm-dd',
+                  minDate: 0,
+                  maxDate: '1m',
+                  beforeShowDay: unavailable,
+                  onSelect: function(selected){
+                      $('#request_start_date').datepicker("option", "maxDate", selected);
+
+                      // 정상일때, 버튼 활성화됨.
+                      var start_date = $('#request_start_date').datepicker('getDate');
+                      var end_date = $(this).datepicker('getDate');
+                      var days = (end_date - start_date)/1000/60/60/24 + 1;
+
+                      var input = {
+                          'start_date': start_date,
+                          'end_date': end_date,
+                          'book_id': <%= @book.id %>
+                      }
+                      $.ajax({
+                          url: "/preview",
+                          data: input,
+                          success: function (data){
+                              if(data.conflict){
+                                  $('#message').text("선택하신 날짜 범위는 이용 불가능합니다.");
+                                  $('#preview').hide();
+                                  $('#btn_book').attr('disabled',true);
+                              }else{
+                                  $('#message').text("선택하신 날짜 범위는 이용가능합니다.");
+                                  $('#preview').show();
+                                  $('#btn_book').attr('disabled',false);
+
+                                  $('#request_days').text(days);
+                              }
+                          }
+                      });
+                  }
+              });
+          }
+
+
       });
+
+
 
   });
 </script>

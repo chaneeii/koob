@@ -157,7 +157,10 @@ input[type="checkbox"]:checked:before{
   border: 1px solid #D85252;
   background-color: #D85252;
 }
-
+.btn-primary[disabled=disabled], .btn-primary:disabled {
+  border: 1px solid #DCDCDC;
+  background-color: #DCDCDC;
+}
 
 .btn-secondary{
   width: 100%;
@@ -407,4 +410,8 @@ input[type="checkbox"]:checked:before{
 }
 
 
-
+/* REQUEST FORM */
+.request-title{
+  background-color: #2E2F30;
+  color: white;
+}

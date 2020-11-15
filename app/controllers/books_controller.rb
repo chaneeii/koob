@@ -17,6 +17,14 @@ class BooksController < ApplicationController
 
   def show
     @photos = @book.photos
+
+    # 예약을 한 유저만 리뷰 남길수있음
+    @booked = Request.where("book_id = ? AND user_id = ?", @book.id, current_user.id).present? if current_user
+
+    # 1명의 사용자는 1개의 책에 1개의 리뷰만 남길수잇으므로 이거 체크
+    @reviews = @book.reviews
+    @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
+
   end
 
   def new

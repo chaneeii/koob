@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     resources :requests, only: [:create]
   end
 
+  resources :books do
+    resources :reviews, only: [:create, :destroy]
+  end
+
   # url 입력할때, 이것은 requests controller의 preload를 실행할 것임.
   get '/preload' => 'requests#preload'
   get '/preview' => 'requests#preview'

@@ -410,11 +410,7 @@ input[type="checkbox"]:checked:before{
 }
 
 
-/* REQUEST FORM */
-.request-title{
-  background-color: #2E2F30;
-  color: white;
-}
+
 
 /* USER PERSONAL PAGE */
 
@@ -430,7 +426,27 @@ input[type="checkbox"]:checked:before{
 .review-form-control{
   margin-bottom: 1%;
 }
-.review-btn {
+
+
+.btn-30p {
   margin-bottom: 3%;
   width: 30%;
+}
+
+/* REQUEST FORM */
+.request-title{
+  background-color: #FF8181;
+  color: white;
+}
+
+.date-picker-style{
+  margin-right: 4%;
+  margin-bottom: 2%;
+}
+
+.date-form-center {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3%;
 }

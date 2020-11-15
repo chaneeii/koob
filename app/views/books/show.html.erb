@@ -27,7 +27,7 @@
           </div>
 
           <div class="col-md-9 vertical-center">
-            <h4><%= @book.book_name %></h4>
+            <h4><%= @book.book_name %></h4> <br>
             <%= @book.address %>
           </div>
 
@@ -36,23 +36,43 @@
 
       </div>
 
+
       <div class="col-md-4">
         <!-- Request form -->
+        <p class="type-view-p"> ▶ 도서 분야 : <%= @book.book_type %> </p>
+        <p class="type-view-p"> ▶ isbn : <%= @book.isbn %> </p>
+      </div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+    <!-- Request form -->
+    <div class="row">
+      <div class="col-md-4">
+
+      </div>
+      <div class="col-md-4">
+        <h4 class="text-center"><strong><i class="fas fa-edit"></i> 대여신청하기</strong></h4>
+        <br>
         <%= render 'requests/form' %>
+      </div>
+      <div class="col-md-4">
+
       </div>
     </div>
 
 
 
     <!-- type -->
-    <div class="row type-view">
-      <div class="col-md-3 ">
-        <p class="type-view-p"> ▶ 도서 분야 : <%= @book.book_type %> </p>
-      </div>
-      <div class="col-md-3">
-        <p class="type-view-p"> ▶ isbn : <%= @book.isbn %> </p>
-      </div>
-    </div>
+<!--    <div class="row type-view">-->
+<!--      <div class="col-md-3 ">-->
+<!--        <p class="type-view-p"> ▶ 도서 분야 : <%#= @book.book_type %> </p>-->
+<!--      </div>-->
+<!--      <div class="col-md-3">-->
+<!--        <p class="type-view-p"> ▶ isbn : <%#= @book.isbn %> </p>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <br>
     <hr>
@@ -165,6 +185,8 @@
 </div>
 
 <br>
+<br>
+<br>
 <!--Close by books-->
 <label> 주위에 있는 책장 같이 탐색</label>
   <div class="row">
@@ -186,4 +208,5 @@
       </div>
     <% end %>
   </div>
+<br>
 <br>

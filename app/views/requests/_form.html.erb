@@ -1,16 +1,12 @@
 <%= form_for([@book, @book.requests.new]) do |f| %>
-  <div class="row request-title">
-    <div class="col-md-12">
-        <h2> SEND REQUEST </h2>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-mid-6">
+  <br>
+  <div class="row date-form-center">
+    <div class="date-picker-style">
       <label>대여시작일</label>
       <%= f.text_field :start_date, readonly: 'true', placeholder: '대여시작일', class: 'form-control' %>
     </div>
-    <div class="col-mid-6">
+    <br>
+    <div class="date-picker-style">
       <label>반납예정일</label>
       <%= f.text_field :end_date, readonly: 'true', placeholder: '반납예정일', class: 'form-control', disabled: 'true' %>
     </div>
@@ -18,6 +14,7 @@
 
   <%= f.hidden_field :book_id, value: @book.id %>
   <!-- 가격 - 나중에 넣으려면 -->
+
   <h6><span id="message"></span></h6>
 
   <div id="preview" style="display: none">

@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
-  belongs_to :room
+  belongs_to :book
   belongs_to :user
 end

@@ -1,0 +1,27 @@
+<% if @reviews.count == 0 %>
+<!--리뷰가 없다면 -->
+  <div class="text-center"><h5>아직 등록된 리뷰가 없습니다.</h5></div>
+<% else %>
+
+    <% @reviews.order("id desc").each do |r| %>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-1">
+        <%= image_tag avatar_url(r.user), class: "rounded-circle avatar-medium" %>
+      </div>
+      <div class="col-md-11">
+        <div>
+          <strong><%= r.user.fullname %> <%= r.star %></strong>
+          <span class="float-right">
+            <%= link_to "리뷰삭제", [@book, r], method: :delete, data: {confirm: "리뷰를 지울까요?"} if
+            current_user && current_user == r.user%>
+          </span>
+        </div>
+        <div><%= r.created_at.strftime("%F") %></div>
+        <div><%= r.comment %></div>
+      </div>
+    </div>
+    <% end %>
+
+<% end %>

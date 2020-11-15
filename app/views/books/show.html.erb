@@ -140,8 +140,27 @@
     <br>
     <hr>
 
+    <!--reviews-->
 
-    <!--Close by Rooms-->
+    <div class="row">
+      <div class="col-md-12">
+        <label> Reviews <%= @book.average_rating %> (<%= @reviews.count %> 개)</label>
+        <div class="container">
+          <div>
+            <%= render 'reviews/form' if @booked && !@hasReview %>
+          </div>
+          <div>
+            <%= render 'reviews/list' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+    <hr>
+
+    <!--Close by books-->
     <label> 주위에 있는 책장 같이 탐색</label>
     <div class="row">
       <% for book in @book.nearbys(10) %>

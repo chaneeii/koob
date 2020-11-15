@@ -29,6 +29,10 @@ class RequestsController < ApplicationController
     redirect_to @request.book, notice: "대여 요청이 성공적으로 전송되었습니다."
   end
 
+  def my_requests
+    @my_requests = current_user.requests
+  end
+
   private
     def is_conflict(start_date, end_date)
       book = Book.find(params[:book_id])

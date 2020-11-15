@@ -20,5 +20,7 @@ Rails.application.routes.draw do
   get '/preload' => 'requests#preload'
   get '/preview' => 'requests#preview'
 
+  get '/my_requests' => 'requests#my_requests'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :books
   has_many :requests
+  has_many :reviews
 
 
   def self.find_for_facebook_oauth(auth)

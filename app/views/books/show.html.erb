@@ -144,7 +144,8 @@
 
     <div class="row">
       <div class="col-md-12">
-        <label> Reviews <%= @book.average_rating %> (<%= @reviews.count %> 개)</label>
+        <label> Reviews</label>
+        <h6><strong>평균: <%= @book.average_rating %>★ (<%= @reviews.count %> 개)</strong></h6>
         <div class="container">
           <div>
             <%= render 'reviews/form' if @booked && !@hasReview %>
@@ -157,35 +158,29 @@
     </div>
 
 
-    <br>
-    <hr>
-
-    <!--Close by books-->
-    <label> 주위에 있는 책장 같이 탐색</label>
-    <div class="row">
-      <% for book in @book.nearbys(10) %>
-        <div class="col-md-4">
-          <div class="card" >
-            <div class="vertical-center img-fluid">
-              <%= image_tag(book.photos[0].image.url(),class: "card-img-top") if book.photos.length > 0 %>
-            </div>
-            <div class="card-body">
-              <span class="card-title">
-                <%= link_to book.book_name, book %>
-              </span> <br>
-              <div class="card-text">
-                ( <%=book.distance.round(2) %> miles away )
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-
-
-
   </div>
 </div>
 
+<br>
+<!--Close by books-->
+<label> 주위에 있는 책장 같이 탐색</label>
+  <div class="row">
+    <% for book in @book.nearbys(10) %>
+      <div class="col-md-4">
+        <div class="card" >
+          <div class="vertical-center img-fluid">
+            <%= image_tag(book.photos[0].image.url(),class: "card-img-top") if book.photos.length > 0 %>
+          </div>
+          <div class="card-body">
+                <span class="card-title">
+                  <%= link_to book.book_name, book %>
+                </span> <br>
+            <div class="card-text">
+              ( <%=book.distance.round(2) %> miles away )
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <br>

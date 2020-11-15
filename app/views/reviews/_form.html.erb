@@ -1,21 +1,27 @@
 <%= form_for([@book, @book.reviews.new]) do |f| %>
 
-  <div id ="user_stars"></div>
-  <%= f.text_field :comment %>
+<!--  <div id ="user_stars"></div>-->
 
-  <%= f.hidden_field :book_id, value: @book.id %>
-
-  <div class="actions">
-    <%= f.submit %>
+  <form>
+  <div class="form-group review-form">
+    <%= f.text_field :star, class: "form-control review-form-control", placeholder: "5점 만점" %>
+    <%= f.text_area :comment, rows: 3, class: "form-control review-form-control", placeholder: "KOOB은 여러분의 리뷰를 기다립니다.
+ *대여기록이 있어야만 리뷰 작성 가능*" %>
   </div>
+  <%= f.hidden_field :book_id, value: @book.id %>
+  <div class="actions">
+    <%= f.submit "리뷰등록", class: "btn btn-primary review-btn hor-center"%>
+  </div>
+  </form>
+
 
 <% end %>
 
-<script>
-      $('#user_stars').raty({
-          path: '/assets/',
-          half      : false,
-          scoreName: 'review[star]',
-          score: 1
-      });
-</script>
+<!--<script>-->
+<!--      $('#user_stars').raty({-->
+<!--          path: '/assets/',-->
+<!--          half      : false,-->
+<!--          scoreName: 'review[star]',-->
+<!--          score: 1-->
+<!--      });-->
+<!--</script>-->

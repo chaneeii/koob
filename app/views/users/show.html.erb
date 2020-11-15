@@ -1,15 +1,14 @@
 
 <div class="row row-cols-1">
   <div class="l-card col-md-4 col-sm-12">
-    <div class="card" style="width: 16rem;">
+    <div class="card hor-center" style="width: 16rem;">
       <%= image_tag avatar_url(@user), class: "avatar-full card-img-top" %>
       <div class="card-body">
         <h5 class="card-title"><%= @user.fullname %></h5>
         <p class="card-text">
-          Email Address<br>
-          Kakao
+          <%= @user.email %>
         </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="<%= @user.kakao %>" class="btn btn-primary">오픈카톡 연락하기</a>
       </div>
     </div>
 
@@ -21,7 +20,8 @@
     </div>
     <br>
 
-    <h5> 총 (<%= @books.length %>)권</h5><br>
+    <!--listing-->
+    <strong><h5> Total : (<%= @books.length %>)권</h5></strong><br>
     <div class="row">
       <% @books.each do|book| %>
         <div class="col-md-4">
@@ -36,8 +36,32 @@
           </div>
         </div>
       <% end %>
-
     </div>
+
+    <br><hr>
+    <!--revies-->
+    <strong><h5>Reviews</h5></strong><br>
+
+    <% @books.each do |book| %>
+      <% if !book.reviews.blank? %>
+          <% book.reviews.each do |review| %>
+            <div class="row">
+              <div class="col-md-2 text-center">
+                <%= image_tag avatar_url(review.user), class: "rounded-circle avatar-medium" %><br>
+                <%= review.user.fullname %>
+              </div>
+              <div class="col-md-10">
+                <strong><%= link_to book.book_name, book %></strong> <br>
+                <%= review.comment %> <br>
+                <%= review.created_at.strftime("%F") %>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+    <% end %>
 
   </div>
 </div>
+
+<br>
+<br>

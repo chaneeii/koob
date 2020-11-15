@@ -3,7 +3,7 @@
   <div class="text-center"><h5>아직 등록된 리뷰가 없습니다.</h5></div>
 <% else %>
 
-    <% @reviews.order("id desc").each do |r| %>
+  <% @reviews.order("id desc").each do |r| %>
     <hr>
 
     <div class="row">
@@ -12,7 +12,7 @@
       </div>
       <div class="col-md-11">
         <div>
-          <strong><%= r.user.fullname %> <%= r.star %></strong>
+          <strong><%= r.user.fullname %> <div id="stars_<%= r.id %>"></div></strong>
           <span class="float-right">
             <%= link_to "리뷰삭제", [@book, r], method: :delete, data: {confirm: "리뷰를 지울까요?"} if
             current_user && current_user == r.user%>
@@ -22,6 +22,19 @@
         <div><%= r.comment %></div>
       </div>
     </div>
-    <% end %>
 
+    <script>
+
+        $('#stars_<%= r.id %>').raty({
+            path: '/assets/',
+            half      : false,
+            readOnly: true,
+            score: <%= r.star %>
+        });
+
+    </script>
+
+
+  <% end %>
 <% end %>
+

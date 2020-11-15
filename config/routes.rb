@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get '/preview' => 'requests#preview'
 
   get '/my_requests' => 'requests#my_requests'
+  get '/rec_requests' => 'requests#rec_requests'
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

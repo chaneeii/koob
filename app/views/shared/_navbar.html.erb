@@ -38,10 +38,12 @@
                 <%= current_user.fullname %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Your Request</a>
+                <%= link_to "나의 책 리스트", books_path, class: "dropdown-item" %>
+                <%= link_to "받은 대여요청", rec_requests_path, class: "dropdown-item" %>
+                <%= link_to "보낸 대여요청", my_requests_path, class: "dropdown-item" %>
                 <a class="dropdown-item" href="#">Wish List</a>
-                <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
                 <div class="dropdown-divider"></div>
+                <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
                 <a class="dropdown-item" href="#">Account Setting</a>
                 <%= link_to "Log Out", destroy_user_session_path, method: :delete , class: "dropdown-item"%></a>
               </div>

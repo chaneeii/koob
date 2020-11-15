@@ -33,6 +33,10 @@ class RequestsController < ApplicationController
     @my_requests = current_user.requests
   end
 
+  def rec_requests
+    @books = current_user.books
+  end
+
   private
     def is_conflict(start_date, end_date)
       book = Book.find(params[:book_id])

@@ -37,6 +37,12 @@ class RequestsController < ApplicationController
     @books = current_user.books
   end
 
+  # show forms
+  def show_requests(request)
+    @request = Request.find(params[:id])
+  end
+
+
   private
     def is_conflict(start_date, end_date)
       book = Book.find(params[:book_id])
@@ -49,4 +55,4 @@ class RequestsController < ApplicationController
       params.require(:request).permit(:start_date, :end_date, :status , :request_msg, :book_id)
     end
 
-end
+  end

@@ -30,15 +30,13 @@
               <div class="col-md-2 vertical-center">
                 <%= request.end_date.strftime('%F') %>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <%= link_to book_path(request.book) do %>
                   <%= image_tag(request.book.photos[0].image.url(),class: "img-thumbnail") %>
                 <% end %>
               </div>
-              <div class="col-md-3 vertical-center">
-                <%= link_to book_path(request.book) do %>
-                  <%= request.book.book_name %>
-                <% end %>
+              <div class="col-md-4 vertical-center">
+                  <%= request.request_msg %>
               </div>
               <div class="col-md-2 vertical-center float-right image-cropper">
                 <%= link_to user_path(request.user) do %>

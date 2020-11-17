@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :photos
 
   resources :books do
-    resources :requests, only: [:create]
+    resources :requests, only: [:create, :show]
   end
 
   resources :books do
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   get '/my_requests' => 'requests#my_requests'
   get '/rec_requests' => 'requests#rec_requests'
+  get '/show_requests' => 'requests#show'
 
   get '/search' => 'pages#search'
 

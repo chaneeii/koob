@@ -32,11 +32,12 @@
             <li class="nav-item dropdown mr-sm-2">
               <a class="nav-link dropdown-toggle username_nav " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= image_tag avatar_url(current_user), class: "rounded-circle avatar-small" %>&nbsp
-                <%= current_user.fullname %>
+                <%= current_user.fullname%>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
-                <%= link_to "Log Out", destroy_user_session_path, method: :delete , class: "dropdown-item"%></a>
+                <%= link_to "나의 프로필", user_path(current_user.id), class: "dropdown-item" %>
+                <%= link_to "프로필 수정", edit_user_registration_path, class: "dropdown-item" %>
+                <%= link_to "로그아웃", destroy_user_session_path, method: :delete , class: "dropdown-item"%></a>
               </div>
             </li>
 

@@ -1,14 +1,19 @@
 <%= form_for([@book, @book.requests.new]) do |f| %>
   <br>
   <div class="row date-form-center">
-    <div class="date-picker-style">
+    <div class=" date-picker-style">
       <label>대여시작일</label>
-      <%= f.text_field :start_date, readonly: 'true', placeholder: '대여시작일', class: 'form-control' %>
+      <%= f.text_field :start_date, readonly: 'true', placeholder: '대여시작일', class: 'form-control request-date-style' %>
     </div>
     <br>
     <div class="date-picker-style">
       <label>반납예정일</label>
-      <%= f.text_field :end_date, readonly: 'true', placeholder: '반납예정일', class: 'form-control', disabled: 'true' %>
+      <%= f.text_field :end_date, readonly: 'true', placeholder: '반납예정일', class: 'form-control request-date-style', disabled: 'true' %>
+    </div>
+    <br>
+    <div>
+      <label>대여요청메세지</label>
+      <%= f.text_area :request_msg, rows:'5', placeholder: '대여요청메세지', class: 'form-control'%>
     </div>
   </div>
 

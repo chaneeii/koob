@@ -15,7 +15,7 @@
     <!-- Main Info -->
     <div class="row main-profile-row">
 
-      <div class="col-md-8">
+      <div class="col-md-9">
         <div class="row">
           <div class="col-md-3 text-center">
             <%= link_to user_path(@book.user) do %>
@@ -27,7 +27,7 @@
           </div>
 
           <div class="col-md-9 vertical-center">
-            <h4><%= @book.book_name %></h4> <br>
+            <h4><strong><%= @book.book_name %></strong></h4>
             <%= @book.address %>
           </div>
 
@@ -37,29 +37,27 @@
       </div>
 
 
-      <div class="col-md-4">
+      <div class="col-md-3 vertical-center float-right">
         <!-- Request form -->
-        <p class="type-view-p"> ▶ 도서 분야 : <%= @book.book_type %> </p>
-        <p class="type-view-p"> ▶ isbn : <%= @book.isbn %> </p>
+        <h6 class="type-view-p"> ▶ Category : <%= @book.book_type %> </h6>
+        <br>
+        <h6 class="type-view-p"> ▶ isbn : <%= @book.isbn %> </h6>
       </div>
     </div>
 
-    <br>
+
     <hr>
     <br>
     <!-- Request form -->
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4"></div>
 
-      </div>
       <div class="col-md-4">
         <h4 class="text-center"><strong><i class="fas fa-edit"></i> 대여신청하기</strong></h4>
         <br>
         <%= render 'requests/form' %>
       </div>
-      <div class="col-md-4">
-
-      </div>
+      <div class="col-md-4"></div>
     </div>
 
 
@@ -174,6 +172,7 @@
             <%= render 'reviews/form' if @booked && !@hasReview %>
           </div>
           <div>
+            <br>
             <%= render 'reviews/list' %>
           </div>
         </div>
@@ -192,7 +191,7 @@
   <div class="row">
     <% for book in @book.nearbys(10) %>
       <div class="col-md-4">
-        <div class="card" >
+        <div class="card card-book-list" >
           <div class="vertical-center img-fluid">
             <%= image_tag(book.photos[0].image.url(),class: "card-img-top") if book.photos.length > 0 %>
           </div>

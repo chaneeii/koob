@@ -12,6 +12,7 @@
 body{
   color: #565a5c;
   background-color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 a {
@@ -54,6 +55,16 @@ input[type="checkbox"]:checked:before{
   /* The height is 400 pixels */
   width: 100%;
   /* The width is the width of the web page */
+}
+
+
+/* FOOTER */
+#footer {
+  margin-top: 3%;
+  text-align: center;
+}
+.social-icon{
+  margin: 20px 10px;
 }
 
 //#wrapper{
@@ -338,7 +349,6 @@ input[type="checkbox"]:checked:before{
 .description {
   color: #575757;
   font-size: 1rem;
-  font-weight: bold;
   line-height: 25px;
 }
 
@@ -434,7 +444,7 @@ input[type="checkbox"]:checked:before{
 /* USER PERSONAL PAGE */
 
 .card-book-list{
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 

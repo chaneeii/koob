@@ -3,6 +3,10 @@ class PagesController < ApplicationController
     @books = Book.all
   end
 
+  def user_guide
+
+  end
+
   def search
     if params[:search].present? && params[:search].strip != ""
       session[:loc_search] = params[:search]

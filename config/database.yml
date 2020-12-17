@@ -20,6 +20,16 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+#production:
+#  <<: *default
+#  database: db/production.sqlite3
+
+#end point가 host
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: koob_production
+  username: postgres_admin
+  password: 12345678
+  host: koob-database.caoivzg2swbw.us-east-1.rds.amazonaws.com
+  port: 5432

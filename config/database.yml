@@ -31,5 +31,5 @@ production:
   database: koob_production
   username: postgres_admin
   password: 12345678
-  host: koob-database.caoivzg2swbw.us-east-1.rds.amazonaws.com
+  host: koob-database.coh2nfjyrvjm.us-east-1.rds.amazonaws.com
   port: 5432

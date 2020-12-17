@@ -3,13 +3,13 @@
 ### Project Description 
 도서공유플랫폼 KOOB은 공유경제시대에 맞춰 위치기반으로 도서를 공유할 수 있도록 매칭기회를 지원합니다.
 
-### CHECK IT OUT!
+## CHECK IT OUT!
 https://koob-the-book.herokuapp.com/
   * using heroku
   * some features are not yet updated for deployment (reviews, nearby) 
   * 배포 목적으로 개발된 프로젝트가 아닌지라 몇가지 사항은 배포에 반영 되지 않았습니다. (리뷰, 주위책장) -> 자세한 내용은 보고서 참조
 
-## 주요 소스코드 확인
+### 주요 소스코드 확인
   * 주요 소스코드는 app디렉토리 내의 model, view, controller 항목을 확인해주세요
   * gemfile을 확인해주세요
 
